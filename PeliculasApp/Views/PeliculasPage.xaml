@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeliculasApp.Views.PeliculasPage"
+             xmlns:model="clr-namespace:PeliculasApp.DTOs"
+             Title="{Binding PeliculaDto.Title}">
+    <ScrollView>
+        <StackLayout Margin="20">
+            <ActivityIndicator IsVisible="{Binding LoadingEsVisible}"
+                           IsRunning="{Binding LoadingEsVisible}"
+                           Color="Blue"
+                           HeightRequest="30"
+                           />
+            <Image Source="{Binding PeliculaDto.Poster_Path}" Margin="0,0,0,10" />
+            
+            <Label Text="{Binding PeliculaDto.Title}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+            <BoxView HeightRequest="1" Color="Brown" HorizontalOptions="FillAndExpand" Margin="0,0,0,10" />
+
+            <!--<Label Text="{Binding PeliculaDto.Original_Title, StringFormat='titulo original: {0}'}" FontSize="16" Margin="0,0,0,10" />-->
+            <Label FontSize="16" Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Titulo original: " FontAttributes="Bold" />
+                        <Span Text="{Binding PeliculaDto.Original_Title}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Margin="0,0,0,10" HorizontalOptions="Fill">
+                <Label.FormattedText>
+                    <FormattedString >
+                        <Span Text="Sinopsis: " FontAttributes="Bold" FontSize="16" />
+                        <Span Text="{Binding PeliculaDto.Ooverview}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Image Source="{Binding PeliculaDto.Backdrop_Path}" Margin="0,0,0,10" />
+            <BoxView HeightRequest="1" Color="Brown" HorizontalOptions="FillAndExpand" Margin="0,0,0,10" />
+
+            <Label Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Fecha de lanzamiento: " FontAttributes="Bold" FontSize="16"  />
+                        <Span Text="{Binding PeliculaDto.Release_Date}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <Label Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Idioma original: " FontAttributes="Bold" FontSize="16"  />
+                        <Span Text="{Binding PeliculaDto.Original_Language}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Popularidad: " FontAttributes="Bold" FontSize="16"  />
+                        <Span Text="{Binding PeliculaDto.Popularity}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Puntuación media: " FontAttributes="Bold" FontSize="16"  />
+                        <Span Text="{Binding PeliculaDto.Vote_Average}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Cantidad de votos: " FontAttributes="Bold" FontSize="16"  />
+                        <Span Text="{Binding PeliculaDto.Vote_Count}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
