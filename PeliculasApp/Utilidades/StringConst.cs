@@ -21,4 +21,10 @@ namespace PeliculasApp.Utilidades
         public const string Italiano = "Italiano";
         public const string ItalianoCode = "it";
     }
+    public static class StringConstApi
+    {
+        public const string TopRated = "top_rated";
+        public const string Popular = "popular";
+
+    }
 }

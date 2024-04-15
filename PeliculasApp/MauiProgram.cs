@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using PeliculasApp.DataAccess;
-using PeliculasApp.Services;
 using PeliculasApp.ViewModels;
 using PeliculasApp.Views;
 
@@ -31,6 +30,10 @@ namespace PeliculasApp
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModel>();
+
+            builder.Services.AddTransient<PeliculasValoradasPage>();
+            builder.Services.AddTransient<ValoradasViewModel>();
+
 
             Routing.RegisterRoute(nameof(PeliculasPage), typeof(PeliculasPage));
 

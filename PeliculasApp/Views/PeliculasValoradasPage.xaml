@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeliculasApp.Views.PeliculasValoradasPage"
+             xmlns:model="clr-namespace:PeliculasApp.DTOs"
+             Title="">
+
+    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="15" Margin="15">
+
+        <!--<Button Grid.Row="0" Text="Registrar usuario" Command="{Binding CrearCommand}"/>-->
+        <Label Grid.Row="0" Text="PELICULAS MEJOR VALORADAS" FontSize="Title" FontAttributes="Bold" FontFamily="Comicate" />
+
+        <ScrollView Grid.Row="2">
+
+            <CollectionView ItemsSource="{Binding ListaPeliculasValoradas}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ValoratedMovieDTO">
+                        <Border Padding="12,5" HorizontalOptions="FillAndExpand">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5"/>
+                            </Border.StrokeShape>
+
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                                  ColumnDefinitions="Auto,*"
+                                  >
+
+                                <Label Grid.Row="0" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,10" FontSize="14" Text="{Binding Title}" />
+
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,30,0,5" Text="Popularidad: " FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,30,0,5" HorizontalOptions="End" Text="{Binding Popularity}" />
+
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,60,0,5" Text="Cantidad de votos: " FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,60,0,5" HorizontalOptions="End" Text="{Binding Vote_Count}" />
+
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,90,0,5" Text="Valoración: " FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,90,0,5" HorizontalOptions="End" Text="{Binding Vote_Average, StringFormat='{0:F1}'}" />
+
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,120,0,5" Text="Fecha de estreno: " FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,120,0,5" HorizontalOptions="End" Text="{Binding Release_Date}" />
+
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,150,0,5" Text="Idioma original: " FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Padding="10,150,0,5" HorizontalOptions="End" Text="{Binding Original_Language}" />
+
+                                <Label Grid.Row="4" Grid.Column="1" Padding="10,10,0,0" HorizontalOptions="Start"
+                                       Text="Ver detalles" TextColor="Blue"
+                                       >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Command="{Binding BindingContext.DetalleCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                            CommandParameter="{Binding}"
+                                            />
+                                    </Label.GestureRecognizers>
+
+                                </Label>
+                                <Image Source="{Binding Poster_Path}" WidthRequest="100" HeightRequest="150" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+
+
+            </CollectionView>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

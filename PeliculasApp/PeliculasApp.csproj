@@ -50,6 +50,9 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\COMICATE.TTF" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\home2.svg" />
+	  <None Remove="Resources\Images\home3.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,6 +64,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\PeliculasPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PeliculasValoradasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

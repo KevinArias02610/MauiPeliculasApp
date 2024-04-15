@@ -11,31 +11,31 @@ using System.Collections.ObjectModel;
 
 namespace PeliculasApp.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class ValoradasViewModel : ObservableObject
     {
         private readonly PeliculaDbContext _dbContext;
 
         [ObservableProperty]
-        private ObservableCollection<MovieDTO> listaPeliculas = new();
+        private ObservableCollection<ValoratedMovieDTO> listaPeliculasValoradas = new();
 
-        public MainViewModel(PeliculaDbContext context)
+        public ValoradasViewModel(PeliculaDbContext context)
         {
             _dbContext = context;
-            MainThread.BeginInvokeOnMainThread(new Action(async () => await ObtenerPeliculas()));
+            MainThread.BeginInvokeOnMainThread(new Action(async () => await ObtenerPeliculasValoradas()));
         }
 
-        public async Task ObtenerPeliculas()
+        public async Task ObtenerPeliculasValoradas()
         {
             FormatLenguajes formatLenguajes = new();
-            var lista = await _dbContext.Movies.ToListAsync();
+            var lista = await _dbContext.ValoratedMovies.ToListAsync();
 
             if (!lista.Any())
             {
                 MoviesService moviesService = new();
-                var resp = await moviesService.ObtenerPeliculas(StringConstApi.Popular);
+                var resp = await moviesService.ObtenerPeliculas(StringConstApi.TopRated);
                 foreach (var item in resp)
                 {
-                    _dbContext.Movies.Add(new Movie
+                    _dbContext.ValoratedMovies.Add(new ValoratedMovie
                     {
                         Id = item.Id,
                         Title = item.Title,
@@ -53,11 +53,11 @@ namespace PeliculasApp.ViewModels
                     });
                 }
                 await _dbContext.SaveChangesAsync();
-                lista = await _dbContext.Movies.ToListAsync();
+                lista = await _dbContext.ValoratedMovies.ToListAsync();
             }
 
-            ListaPeliculas = new(
-                lista.Select(item => new MovieDTO
+            ListaPeliculasValoradas = new(
+                lista.Select(item => new ValoratedMovieDTO
                 {
                     Id = item.Id,
                     Title = item.Title,
@@ -75,13 +75,12 @@ namespace PeliculasApp.ViewModels
                 }));
         }
 
-
-
         [RelayCommand]
         private async Task Detalle(MovieDTO movie)
         {
             var uri = $"{nameof(PeliculasPage)}?id={movie.Id}";
             await Shell.Current.GoToAsync(uri);
         }
+
     }
 }

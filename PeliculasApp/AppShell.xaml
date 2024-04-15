@@ -3,12 +3,24 @@
     x:Class="PeliculasApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:PeliculasApp"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:local="clr-namespace:PeliculasApp.Views"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
+    <Shell.FlyoutHeader>
+        <Image Source="home2.svg" WidthRequest="120" Margin="10"/>
+    </Shell.FlyoutHeader>
+    
+    <FlyoutItem Title="Inicio">
+        <Tab Title="Peliculas Populares">
+            <ShellContent Title="Peliculas Populares" ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Peliculas Mejor Valoradas">
+            <ShellContent Title="Peliculas mejor valoradas" ContentTemplate="{DataTemplate local:PeliculasValoradasPage}"/>
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

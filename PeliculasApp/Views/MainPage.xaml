@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:PeliculasApp.DTOs"
-             x:Class="PeliculasApp.MainPage"
+             x:Class="PeliculasApp.Views.MainPage"
              Title="">
 
     <Grid RowDefinitions="Auto,Auto,*" RowSpacing="15" Margin="15">
@@ -29,7 +29,6 @@
                                   >
 
                                 <Label Grid.Row="0" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,10" FontSize="14" Text="{Binding Title}" />
-                                <BoxView HeightRequest="1" Color="Brown" HorizontalOptions="FillAndExpand" Margin="10,0,0,10" />
 
                                 <Label Grid.Row="0" Grid.Column="1" Padding="10,30,0,5" Text="Popularidad: " FontAttributes="Bold"/>
                                 <Label Grid.Row="0" Grid.Column="1" Padding="10,30,0,5" HorizontalOptions="End" Text="{Binding Popularity}" />
@@ -51,7 +50,7 @@
                                        >
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer 
-                                            Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                            Command="{Binding BindingContext.DetalleCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
                                             CommandParameter="{Binding}"
                                             />
                                     </Label.GestureRecognizers>
