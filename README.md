@@ -1,42 +1,52 @@
-# Título del Proyecto
 
-¡Bienvenido al Proyecto XYZ!
+# MauiPeliculasApp
 
-## Descripción
+Aplicación .NET 7 MAUI en la cual se podrán visualizar las peliculas populares y mejor valoradas. Se utiliza SQLite como base de datos y patrón de diseño MVVVM
 
-Este proyecto es una plataforma para [descripción breve del proyecto]. [Puede incluir qué hace, para qué sirve, etc.].
 
-## Capturas de Pantalla
+## API Reference
+https://developers.themoviedb.org/3/movies/get-popular-movies
+#### Get peliculas populares
 
-[Inserta algunas capturas de pantalla aquí si es aplicable]
+```http
+  GET https://api.themoviedb.org/3/movie/popular
+```
 
-## Instalación
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Requerido**. Api key |
+| `language` | `string` | **Opcional**. es-ES (español) |
+| `page` | `string` | **Opcional**. 1 página |
 
-1. Clona este repositorio.
-2. Instala las dependencias utilizando `npm install` o `yarn install`.
-3. Inicia el servidor utilizando `npm start` o `yarn start`.
+#### Get peliculas mejor valoradas
 
-## Uso
+```http
+  GET https://api.themoviedb.org/3/movie/top_rated
+```
 
-[Proporciona ejemplos o instrucciones de cómo usar tu proyecto]
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Requerido**. Api key |
+| `language` | `string` | **Opcional**. es-ES (español) |
+| `page` | `string` | **Opcional**. 1 página |
 
-## Contribución
 
-¡Las contribuciones son bienvenidas! Por favor, lee [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles sobre cómo contribuir a este proyecto.
 
-## Licencia
 
-Este proyecto está bajo la Licencia [Nombre de la Licencia]. Consulta el archivo [LICENSE.md](LICENSE.md) para más detalles.
+## Paquetes y versiones
 
-## Contacto
+- CommunityToolkit.Mvvm **v. 8.2.1**
+- Microsoft.EntityFrameworkCore.Sqlite **v. 7.0.18**
+- Newtonsoft.Json **v. 13.0.3**
+- Microsoft.Data.Sqlite.Core **v. 7.0.18**
+- Microsoft.EntityFrameworkCore.Sqlite **v.7.0.18**
 
-- [Tu Nombre](enlace_a_tu_perfil)
-- Correo Electrónico: [tu@email.com]
 
-## Reconocimientos
+### Tencnología
+- .NET 7 MAUI
+### Base de datos
+- SQLite
+### Patrón de diseño
 
-[Si hay agradecimientos especiales a personas o proyectos]
+- MVVM
 
----
-
-¡Gracias por visitar este repositorio! Espero que encuentres útil este proyecto. Si tienes alguna pregunta o sugerencia, no dudes en contactarme.
