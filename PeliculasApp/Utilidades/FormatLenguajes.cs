@@ -12,6 +12,7 @@
                 StringConst.FrancesCode => $"{StringConst.Frances} ({StringConst.FrancesCode})",
                 StringConst.CoreanoCode => $"{StringConst.Coreano} ({StringConst.CoreanoCode})",
                 StringConst.ItalianoCode => $"{StringConst.Italiano} ({StringConst.ItalianoCode})",
+                StringConst.JaponesCode => $"{StringConst.Japones} ({StringConst.JaponesCode})",
                 _ => codigo,
             };
             return idioma;

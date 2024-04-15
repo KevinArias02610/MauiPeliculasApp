@@ -20,6 +20,8 @@ namespace PeliculasApp.Utilidades
         public const string CoreanoCode = "ko";
         public const string Italiano = "Italiano";
         public const string ItalianoCode = "it";
+        public const string Japones = "Japonés";
+        public const string JaponesCode = "ja";
     }
     public static class StringConstApi
     {

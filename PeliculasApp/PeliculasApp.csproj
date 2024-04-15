@@ -66,6 +66,9 @@
 	  <MauiXaml Update="Views\PeliculasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\PeliculasValoradasDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PeliculasValoradasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -34,11 +34,11 @@ namespace PeliculasApp
             builder.Services.AddTransient<PeliculasValoradasPage>();
             builder.Services.AddTransient<ValoradasViewModel>();
 
+            builder.Services.AddTransient<PeliculasValoradasDetailPage>();
+            builder.Services.AddTransient<ValoradasDetailViewModel>();
 
             Routing.RegisterRoute(nameof(PeliculasPage), typeof(PeliculasPage));
-
-            //builder.Services.AddSingleton<IMovieService, MoviesService>();
-            //builder.Services.AddTransient<MainPage>();
+            Routing.RegisterRoute(nameof(PeliculasValoradasDetailPage), typeof(PeliculasValoradasDetailPage));
 
 #if DEBUG
             builder.Logging.AddDebug();

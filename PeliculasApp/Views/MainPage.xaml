@@ -6,7 +6,11 @@
              Title="">
 
     <Grid RowDefinitions="Auto,Auto,*" RowSpacing="15" Margin="15">
-
+        <ActivityIndicator IsVisible="{Binding LoadingEsVisible}"
+                           IsRunning="{Binding LoadingEsVisible}"
+                           Color="Blue"
+                           HeightRequest="30"
+                           />
         <!--<Button Grid.Row="0" Text="Registrar usuario" Command="{Binding CrearCommand}"/>-->
         <Label Grid.Row="0" Text="PELICULAS POPULARES" FontSize="Title" FontAttributes="Bold" FontFamily="Comicate" />
 

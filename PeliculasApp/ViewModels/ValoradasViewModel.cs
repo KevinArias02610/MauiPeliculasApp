@@ -76,9 +76,9 @@ namespace PeliculasApp.ViewModels
         }
 
         [RelayCommand]
-        private async Task Detalle(MovieDTO movie)
+        private async Task Detalle(ValoratedMovieDTO movie)
         {
-            var uri = $"{nameof(PeliculasPage)}?id={movie.Id}";
+            var uri = $"{nameof(PeliculasValoradasDetailPage)}?id={movie.Id}";
             await Shell.Current.GoToAsync(uri);
         }
 
